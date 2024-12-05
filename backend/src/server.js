@@ -1,0 +1,3 @@
+/**
+ * Config inicial del server
+ */
