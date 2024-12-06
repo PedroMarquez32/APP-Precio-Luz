@@ -4,8 +4,6 @@ import Chart from 'chart.js/auto';
 //Chart.register(BarElement, CategoryScale, LinearScale);
 
 export function createdGraph(starHour,endHour,data) {
-  console.log(starHour);
-  console.log(endHour);
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
 
