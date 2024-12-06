@@ -6,13 +6,14 @@ export const getIndexHandler = (req, res) => {
 };
 
 
-export const getPostFormHandler = (req,res)=>{
-    const { form, email, password }= req.body;
-    console.log("hola");
-    console.log(req.body);
-    if(form==="loginform"){
-        console.log("formulario1");
-    }else if(form==="signinform"){
-        console.log("formulario2");
-    }
-}
+
+
+
+// export function getPostFormHandler(req,res){
+//     const { form, email, password }= req.body;
+//     if(form==="loginform"){
+//         getClientByEmailHandler(email, req,res);
+//     }else if(form==="signinform"){
+//         createClientHandler(email,password,req,res);
+//     }
+// }
