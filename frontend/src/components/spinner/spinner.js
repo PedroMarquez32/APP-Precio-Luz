@@ -5,7 +5,7 @@
  * - Ocultar el Spinner
  */
 
-export const createSpinner = () => {
+export const createSpinner = () =>  {
     // voy a crear el spinner en el DOM
     const spinner = document.createElement("div");
     spinner.id="spinner";
