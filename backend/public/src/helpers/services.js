@@ -1,16 +1,11 @@
 export const createUserRequest = async (dataUrlUser, email, password) =>{
-    console.log("hola")
-    const newData = {
-        email: email,
-        password: password
-    }
     try {
         const response = await fetch(dataUrlUser, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
             },
-            body: JSON.stringify(newData)
+            body: JSON.stringify({ email, password })
         })
         if(!response.ok){
             throw new Error("Error al obtener la respuesta")
@@ -20,27 +15,29 @@ export const createUserRequest = async (dataUrlUser, email, password) =>{
         return data;
     } catch (error) {
         console.log("Error al crear el usuario ", error)
+        return false;
     }
 }
 
 
 
-export const getUserByEmailRequest = async (dataUrlUser, email) =>{
-    try {
+export const loginUserRequest = async (dataUrlUser, email, password)=>{
+    try{
         const response = await fetch(dataUrlUser, {
-            method: 'GET',
+            method: 'POST',
             headers: {
-                'Content-Type' : 'application/json'
+            'Content-Type': 'application/json',
             },
-            body: JSON.stringify(email)
-        })
+            body: JSON.stringify({ email, password })
+        });
         if(!response.ok){
             throw new Error("Error al obtener la respuesta")
         }
         const data = await response.json();
-        console.log("Leídos los datos:", data);
-        return data;
+        alert("Autentificación exitosa");
+        window.location.href = data.redirectUrl;
     } catch (error) {
-        console.log("Error al obtener los datos ", error)
+        alert("Usuario/contraseña inválido");
+        console.log("Usuario/contraseña inválido", error)
     }
 }

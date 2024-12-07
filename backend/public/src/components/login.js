@@ -1,6 +1,9 @@
 import { validateLogin } from '../helpers/validation.js';
 import { getUsersFromStorage } from '../helpers/storage.js';
 import { switchToRegister } from '../main.js';
+import { loginUserRequest } from '../helpers/services.js';
+
+const dataUrlUser = "http://localhost:3000/users/login"
 
 export function renderLogin() {
   const loginDiv = document.createElement('div');
@@ -13,15 +16,12 @@ export function renderLogin() {
     <p>¿No tienes cuenta? <a href="#" id="register-link">Regístrate aquí</a></p>
   `;
 
-  loginDiv.querySelector('#login-button').addEventListener('click', () => {
+  loginDiv.querySelector('#login-button').addEventListener('click', async () => {
     const email = loginDiv.querySelector('#login-email').value;
     const password = loginDiv.querySelector('#login-password').value;
 
-    if (validateLogin(email, password, getUsersFromStorage())) {
-      alert('¡Login exitoso!');
-    } else {
-      alert('Correo o contraseña incorrectos.');
-    }
+    await loginUserRequest(dataUrlUser, email, password)
+
   });
 
   loginDiv.querySelector('#register-link').addEventListener('click', switchToRegister);

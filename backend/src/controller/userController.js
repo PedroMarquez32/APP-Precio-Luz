@@ -1,5 +1,4 @@
-import { createUser, getUserByEmail, getAllUser } from "../models/user.js";
-
+import { createUser, getAllUser, loginUser } from "../models/user.js";
 
 export const createUserHandler = (req,res)=>{
     const { email, password } = req.body;
@@ -16,16 +15,15 @@ export const createUserHandler = (req,res)=>{
 }
 
 
-
-export const getUserByEmailHandler = (req, res)=>{
-    const { email } = req.params;
-    getUserByEmail(email,(err,row)=>{
+export const loginUserHandler = (req, res)=>{
+    const { email, password } = req.body;
+    loginUser(email,password, (err,row)=>{
         if(err){
             res.status(500).json({error: err.message});
         }else if(!row){
-            res.status(404).json({error: "Cliente no encontrado"});
+            res.status(404).json({error: "Usuario o contraseña inválida"});
         }else{
-            res.status(201).json(row);
+            res.status(201).json({ redirectUrl: '/main'});
         }
     })
 }

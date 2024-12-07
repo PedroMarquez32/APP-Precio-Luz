@@ -8,9 +8,10 @@ export const createUser = (email,password,callback)=>{
     });
 }
 
-export const getUserByEmail = (email,callback)=>{
-    const sql = `SELECT * FROM user WHERE email=?`;
-    db.get(sql, email, function(err,row){
+export const loginUser = (email,password, callback)=>{
+    const sql = `SELECT * FROM user WHERE email=? AND password=?`;
+    const params = [email, password];
+    db.get(sql, params, function(err,row){
         callback(err,row);
     })
 }
