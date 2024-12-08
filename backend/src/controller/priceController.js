@@ -1,4 +1,4 @@
-import { insertPrice } from '../models/priceModel.js';
+import { insertPrice, getAllPrices } from '../models/priceModel.js';
 import { API_LUZ_URL } from '../config/config.js';
 
 export const fetchPrices = async (req, res) => {
@@ -30,6 +30,16 @@ export const fetchPrices = async (req, res) => {
         console.error('Error en fetchPrices:', error.message);
         res.status(500).json({ error: 'Error al obtener los datos.' });
     }
+};
+
+export const getPrices = (req, res) => {
+    getAllPrices((err, rows) => {
+        if (err) {
+            console.error('Error al obtener precios:', err.message);
+            return res.status(500).json({ error: 'Error al obtener los precios.' });
+        }
+        res.status(200).json(rows);
+    });
 };
 
 
