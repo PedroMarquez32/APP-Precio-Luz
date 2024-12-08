@@ -9,6 +9,7 @@ import { getDataPrice } from "./helpers/getDataPrices.js";
 
 import { createLogin} from './components/login.js';
 import { createRegister } from './components/register.js';
+
 // -------- Delcaracion de variables ------
 const urlData = import.meta.env.VITE_HOUR_PRICES;
 let showFooter = true;
@@ -23,7 +24,7 @@ const githubs =
     Pedro_Javier_Marquez_Lizana: "PedroMarquez32"
 };
 
-// --------- Delcaracion de funciones -----
+// --------- Declaracion de funciones -----
 
 // REGISTER Y LOGIN:
 function renderLogin(){

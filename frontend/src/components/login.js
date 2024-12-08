@@ -1,5 +1,6 @@
-import { validateLogin } from '../helpers/validation.js';
+import { validateLogin } from '../helpers/validation';
 import { getUsersFromStorage } from '../helpers/storage.js';
+
 
 let logeado = false;
 
