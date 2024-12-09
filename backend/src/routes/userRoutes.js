@@ -8,6 +8,4 @@ userRoutes.post("/login", loginUserHandler);
 
 userRoutes.get("/", getAllUserHandler);
 
-
-
 export default userRoutes;
