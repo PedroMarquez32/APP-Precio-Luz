@@ -6,7 +6,6 @@ import { createLoadButton } from "./components/loadButton/loadButton.js";
 import { createDiv } from "./components/navIndex/divIndex.js";
 import { createSpinner, hideSpinner, showSpinner } from "./components/spinner/spinner.js";
 import { getDataPrice } from "./helpers/getDataPrices.js";
-
 import { createLogin} from './components/login.js';
 import { createRegister } from './components/register.js';
 
@@ -139,8 +138,8 @@ function renderPaginaTime() {
 renderLogin();
 
 // SE GUARDA EN EL LOCAL STORAGE UNA VARIABLE BOOLEANA PARA SABER SI ESTA LOGEADO
+let logeado = true;
 if(logeado){
-    const logeado = localStorage.getItem();
     app.innerHTML = "";
     renderPaginaLuzYTiempo();
     logeado = false;

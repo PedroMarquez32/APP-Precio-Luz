@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-=======
-/**
- * Crear la dadtabase por si acaso no existe.
- */
-
->>>>>>> fef78b5ddc37dddc1dcd16ddde423b667d837254
 import sqlite3 from 'sqlite3';
 import { DATABASE_PATH } from '../config/config.js';
 
@@ -17,7 +10,6 @@ const db = new sqlite3.Database(DATABASE_PATH, err=>{
 });
 
 db.serialize(()=>{
-<<<<<<< HEAD
     db.run(`
          CREATE TABLE IF NOT EXISTS user (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,7 +17,6 @@ db.serialize(()=>{
             password TEXT
         )`
     );
-=======
     db.run(
         ` CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,7 +31,6 @@ db.serialize(()=>{
             price REAL
         )`,
     );
->>>>>>> fef78b5ddc37dddc1dcd16ddde423b667d837254
 });
 
 export default db;
