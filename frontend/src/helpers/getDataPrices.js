@@ -1,12 +1,21 @@
 // traer la data de los precios de la luz y retornarla
+const guardar = "http://localhost:3000/api/fetch-prices";
+const dataPrice = "http://localhost:3000/api/prices";
 
-export async function getDataPrice(urlData) {
-    const response = await fetch(urlData);
-    const mapData = new Map();
+export async function getDataPrice() {
+    const response = await fetch(guardar);
     if(!response.ok){
-        throw new Error("Error: Error en la API")
+        throw new Error("Error: Error en la API");
+        return "";
     }
-    const data = await response.json();
-    mapData.set("Precio Mercado",data.included[1].attributes.values);
-    return mapData;
+    else {
+        const prices = await fetch(dataPrice);
+        const mapData = new Map();
+        if(!prices.ok){
+            throw new Error("Error: Error en la API")
+        }
+        const data = await prices.json();
+        mapData.set("Precio Mercado",data);
+        return mapData;
+    }
 };

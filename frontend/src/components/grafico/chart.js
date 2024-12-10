@@ -7,12 +7,12 @@ export function createdGraph(starHour,endHour,data) {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
 
-  const dataFiltrada = (data.filter((array) => array.datetime.split("T")[1].split(":")[0] >= starHour.split(":")[0] && array.datetime.split("T")[1].split(":")[0] <= endHour.split(":")[0]));
+  const dataFiltrada = (data.filter((array) => array.timestamp.split("T")[1].split(":")[0] >= starHour.split(":")[0] && array.timestamp.split("T")[1].split(":")[0] <= endHour.split(":")[0]));
 
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: dataFiltrada.map((array) => array.datetime.split("T")[1].split("+")[0].split(".")[0]),
+      labels: dataFiltrada.map((array) => array.timestamp.split("T")[1].split("+")[0].split(".")[0]),
       datasets: [
         {
           label: 'Precio €/kWh',
