@@ -2,7 +2,13 @@
 import db from "./database.js";
 
 export const insertPrice = (timestamp, price, callback) => {
+    const sql2 = `DELETE FROM prices`
     const sql = `INSERT INTO prices (timestamp, price) VALUES (?, ?)`;
+
+   db.run(sql2, [], function(err, row){
+    callback(err, row);
+   });
+   
     db.run(sql, [timestamp, price], function(err,row){
         callback(err, row);
     });
