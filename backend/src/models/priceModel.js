@@ -8,11 +8,11 @@ export const insertPrice = (timestamp, price, callback) => {
 
     db.run(sqlDelete, [], function (err) {
         if (err) {
-            return callback(err); 
+            callback(err); 
         }
 
-        db.run(sqlInsert, [timestamp, price], function (err) {
-            callback(err);
+        db.run(sqlInsert, [timestamp, price], function (err, rows) {
+            callback(err, rows);
         });
     });
 };
