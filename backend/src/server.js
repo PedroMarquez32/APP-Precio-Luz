@@ -5,7 +5,7 @@ import cors from 'cors';
 import express from 'express';
 import { PORT } from './config/config.js';
 import priceRoutes from './routes/priceRoutes.js';
-import userRoute from './routes/userRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 
 const app = express();

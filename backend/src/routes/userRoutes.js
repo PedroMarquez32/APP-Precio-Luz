@@ -6,8 +6,7 @@ const userRoutes = express.Router();
 userRoutes.post("/signin",createUserHandler);
 userRoutes.post("/login", loginUserHandler);
 
-userRoutes.get("/", getAllUserHandler);
-
+userRoutes.get("/users", getAllUserHandler);
 
 
 export default userRoutes;

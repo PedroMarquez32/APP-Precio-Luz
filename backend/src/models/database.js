@@ -14,18 +14,18 @@ const db = new sqlite3.Database(DATABASE_PATH, err=>{
 });
 
 db.serialize(()=>{
+    db.run(`
+        CREATE TABLE IF NOT EXISTS user (
+           id INTEGER PRIMARY KEY AUTOINCREMENT,
+           email TEXT UNIQUE,
+           password TEXT
+       )`)
+
     db.run(
         `CREATE TABLE IF NOT EXISTS prices (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             timestamp TEXT,
             price REAL
-        )`,
-
-    db.run(`
-         CREATE TABLE IF NOT EXISTS user (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            email TEXT UNIQUE,
-            password TEXT
         )`
     );
 });
