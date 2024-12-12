@@ -2,10 +2,8 @@
 
 export const cardPrices = async (data,starHour,endHour) => {
     const divPrice = document.createElement("div");
-    console.log(data.get("Precio Mercado"));
     divPrice.id = "cardPrice";
     data.get("Precio Mercado").forEach(element => {
-        console.log(element);
         const { timestamp,price } = element;
         // Compraramos las horas para filtras las que hemos puesto.
         if(timestamp.split("T")[1].split(":")[0] >= starHour.split(":")[0] && timestamp.split("T")[1].split(":")[0] <= endHour.split(":")[0]){

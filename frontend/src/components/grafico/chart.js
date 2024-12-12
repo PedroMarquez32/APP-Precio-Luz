@@ -8,7 +8,7 @@ export function createdGraph(starHour,endHour,data) {
   const ctx = canvas.getContext('2d');
 
   const dataFiltrada = (data.filter((array) => array.timestamp.split("T")[1].split(":")[0] >= starHour.split(":")[0] && array.timestamp.split("T")[1].split(":")[0] <= endHour.split(":")[0]));
-
+  console.log(dataFiltrada);
   new Chart(ctx, {
     type: 'bar',
     data: {
@@ -16,7 +16,7 @@ export function createdGraph(starHour,endHour,data) {
       datasets: [
         {
           label: 'Precio €/kWh',
-          data: dataFiltrada.map((array) => array.value),
+          data: dataFiltrada.map((array) => array.price),
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 1,
