@@ -1,4 +1,4 @@
-import { insertPrice, getAllPrices } from '../models/priceModel.js';
+import { insertPrice, getAllPrices, deletePrices } from '../models/priceModel.js';
 import { API_LUZ_URL } from '../config/config.js';
 
 export const fetchPrices = async (req, res) => {
@@ -13,6 +13,12 @@ export const fetchPrices = async (req, res) => {
         const prices = data.included[0]?.attributes?.values; // Vale loque hace aqui la ? es encadenar de maneta que en vez de devolver error en caso de error devuelve undefined
  
         if (prices && Array.isArray(prices)) {
+            deletePrices((err) => {
+                if (err) {
+                    console.error('Error al eliminar precios:', err.message);
+                }
+                console.log('Precios eliminados correctamente.');
+            });
             // Iterar sobre los precios y guardarlos en la base de datos
             for (const { datetime, value } of prices) {   // Se hace con for of en vez de forEach porque puedo parar cuadno quiere y lo veo mas claro
                 insertPrice(datetime, value, (err) => {
