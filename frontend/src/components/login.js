@@ -3,7 +3,7 @@ import { getUsersFromStorage } from '../helpers/storage.js';
 import { switchToRegister } from '../main.js';
 import { loginUserRequest } from '../helpers/services.js';
 
-const dataUrlUser = "http://localhost:3000/api/user/login"
+const dataUrlUser = "http://localhost:3000/api/login"
 
 export function renderLogin() {
   const loginDiv = document.createElement('div');

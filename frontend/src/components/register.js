@@ -2,7 +2,7 @@ import { createUserRequest } from '../helpers/services.js';
 import { saveUserToStorage, getUsersFromStorage } from '../helpers/storage.js';
 import { switchToLogin } from '../main.js';
 
-const dataUrlUser = "http://localhost:3000/api/user/signin"
+const dataUrlUser = "http://localhost:3000/api/signin"
 
 export function renderRegister() {
   const registerDiv = document.createElement('div');

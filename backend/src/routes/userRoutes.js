@@ -3,7 +3,7 @@ import { createUserHandler, getAllUserHandler, loginUserHandler} from "../contro
 
 const userRoutes = express.Router();
 
-userRoutes.post("/signin",createUserHandler);
+userRoutes.post("/signin", createUserHandler);
 userRoutes.post("/login", loginUserHandler);
 
 userRoutes.get("/users", getAllUserHandler);

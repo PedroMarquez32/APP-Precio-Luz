@@ -18,7 +18,7 @@ app.use(cors({
 app.use(express.json());
 app.use('/api', priceRoutes);
 app.use('/api',userRoutes);
-app.use('/api/',weatherRoutes);
+app.use('/api',weatherRoutes);
 
 app.listen(PORT,()=>{
     console.log(`Server ejecutandose en la url: http://localhost:${PORT}`);
