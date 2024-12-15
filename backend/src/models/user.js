@@ -1,18 +1,36 @@
+import bcrypt from 'bcrypt';
 import db from "./database.js";
 
-export const createUser = (email,password,callback)=>{
-    const sql = `INSERT INTO user (email, password) VALUES (?,?)`;
-    const params = [email, password];
-    db.run(sql, params,function(err){
-        callback(err,{id:this.lastID});
+const salt = 10;
+
+export const createUser = async (email,password,callback)=>{
+
+    bcrypt.hash(password, salt , function(err,hash) {
+        const sql = `INSERT INTO user (email, password) VALUES (?,?)`;
+        const params = [email, hash];
+        db.run(sql, params,function(err){
+            callback(err,{id:this.lastID});
+        });
     });
+
 }
 
 export const loginUser = (email,password, callback)=>{
-    const sql = `SELECT * FROM user WHERE email=? AND password=?`;
-    const params = [email, password];
+
+    const sql = `SELECT * FROM user WHERE email=?`;
+    const params = [email];
+
     db.get(sql, params, function(err,row){
-        callback(err,row);
+
+        if(row){
+            bcrypt.compare(password, row.password, function(err,result){
+                row = result ? row:null; 
+                callback(err,row);
+            })
+        }else{
+            callback(err,row);
+        }
+
     })
 }
 

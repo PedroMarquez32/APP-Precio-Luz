@@ -1,6 +1,7 @@
 import { createUser, getAllUser, loginUser } from "../models/user.js";
 
-export const createUserHandler = (req,res)=>{
+
+export const createUserHandler = async (req,res)=>{
     const { email, password } = req.body;
 
         createUser(email, password, (err,result)=>{
@@ -17,6 +18,7 @@ export const createUserHandler = (req,res)=>{
 
 export const loginUserHandler = (req, res)=>{
     const { email, password } = req.body;
+
     loginUser(email,password, (err,row)=>{
         if(err){
             res.status(500).json({error: err.message});

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { cardPrices } from "./components/cardPrices/cardPrices.js";
 import { createFooter } from "./components/footer/footer.js";
 import { createdGraph } from "./components/grafico/chart.js";
@@ -145,3 +146,25 @@ if(logeado){
     renderPaginaLuzYTiempo();
     logeado = false;
 };
+=======
+import { renderLogin } from './components/login.js';
+import { renderRegister } from './components/register.js';
+
+function loadComponent(component) {
+  const app = document.getElementById('app');
+  app.innerHTML = ''; // Limpia el contenido previo
+  app.appendChild(component);
+}
+
+// Carga inicial
+loadComponent(renderLogin());
+
+// Exportamos funciones para cambiar entre componentes
+export function switchToLogin() {
+  loadComponent(renderLogin());
+}
+
+export function switchToRegister() {
+  loadComponent(renderRegister());
+}
+>>>>>>> 535e167bb86673c4e52ae96b26f25e650d140ddb

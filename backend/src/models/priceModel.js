@@ -8,6 +8,13 @@ export const insertPrice = (timestamp, price, callback) => {
     });
 };
 
+export const deletePrices = (callback)=>{
+    const sql = `DELETE FROM prices`;
+    db.run(sql, [], function(err,row){
+        callback(err, row);
+    });
+}
+
 export const getAllPrices = (callback) => {
     const sql = `SELECT * FROM prices ORDER BY timestamp ASC`;
     db.all(sql, [], function  (err, rows){

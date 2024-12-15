@@ -1,7 +1,17 @@
+<<<<<<< HEAD
 import { saveUserToStorage, getUsersFromStorage } from '../helpers/storage.js';
 
 
 export function createRegister() {
+=======
+import { createUserRequest } from '../helpers/services.js';
+import { saveUserToStorage, getUsersFromStorage } from '../helpers/storage.js';
+import { switchToLogin } from '../main.js';
+
+const dataUrlUser = "http://localhost:3000/api/signin"
+
+export function renderRegister() {
+>>>>>>> 535e167bb86673c4e52ae96b26f25e650d140ddb
   const registerDiv = document.createElement('div');
 
   registerDiv.innerHTML = `
@@ -13,13 +23,18 @@ export function createRegister() {
     <p>¿Ya tienes cuenta? <a href="#" id="login-link">Inicia sesión aquí</a></p>
   `;
 
+<<<<<<< HEAD
   registerDiv.querySelector('#register-button').addEventListener('click', () => {
+=======
+  registerDiv.querySelector('#register-button').addEventListener('click', async () => {
+>>>>>>> 535e167bb86673c4e52ae96b26f25e650d140ddb
     const email = registerDiv.querySelector('#register-email').value;
     const password = registerDiv.querySelector('#register-password').value;
     const confirmPassword = registerDiv.querySelector('#register-confirm-password').value;
 
     const users = getUsersFromStorage();
 
+<<<<<<< HEAD
     if (users.some(user => user.email === email)) {
       alert('El correo ya está registrado.');
     } else if (password !== confirmPassword) {
@@ -31,5 +46,24 @@ export function createRegister() {
     }
   });
 
+=======
+    if (password !== confirmPassword) {
+      alert('Las contraseñas no coinciden.');
+    } else {
+
+      if(await createUserRequest(dataUrlUser, email, password)){
+        saveUserToStorage({ email, password });
+        alert('¡Registro exitoso!');
+        switchToLogin();
+      }else{
+        alert('El correo ya está registrado.');
+      }
+
+    }
+  });
+
+  registerDiv.querySelector('#login-link').addEventListener('click', switchToLogin);
+
+>>>>>>> 535e167bb86673c4e52ae96b26f25e650d140ddb
   return registerDiv;
 }
