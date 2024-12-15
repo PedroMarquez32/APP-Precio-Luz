@@ -1,56 +1,70 @@
-//import { Chart as ChartJS, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import Chart from 'chart.js/auto';
 
-//Chart.register(BarElement, CategoryScale, LinearScale);
-
-export function createdGraph(starHour,endHour,data) {
+export function createdGraph(starHour, endHour, data) {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
 
-  const dataFiltrada = (data.filter((array) => array.timestamp.split("T")[1].split(":")[0] >= starHour.split(":")[0] && array.timestamp.split("T")[1].split(":")[0] <= endHour.split(":")[0]));
-  console.log(dataFiltrada);
-  new Chart(ctx, {
-    type: 'bar',
+  const dataFiltrada = data.filter((array) => {
+    const hour = array.timestamp.split("T")[1].split(":")[0];
+    return hour >= starHour.split(":")[0] && hour <= endHour.split(":")[0];
+  });
+
+  // Destruir gráfica existente si hay una
+  if (window.myChart) {
+    window.myChart.destroy();
+  }
+
+  // Nueva configuración simplificada
+  window.myChart = new Chart(ctx, {
+    type: 'line',
     data: {
-      labels: dataFiltrada.map((array) => array.timestamp.split("T")[1].split("+")[0].split(".")[0]),
-      datasets: [
-        {
-          label: 'Precio €/kWh',
-          data: dataFiltrada.map((array) => array.price),
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
-        },
-      ],
+      labels: dataFiltrada.map(item => item.timestamp.split('T')[1].split('+')[0]),
+      datasets: [{
+        label: 'Precio de la luz',
+        data: dataFiltrada.map(item => item.price),
+        borderColor: '#FFC107',
+        backgroundColor: 'rgba(255, 193, 7, 0.2)',
+        borderWidth: 4,
+        pointRadius: 6,
+        pointBackgroundColor: '#FFC107',
+        pointBorderColor: '#FFC107',
+        tension: 0.4,
+        fill: true
+      }]
     },
     options: {
       responsive: true,
-      maintainAspectRatio: true, 
-      aspectRatio: 4,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: {
+            color: '#FFFFFF'
+          }
+        }
+      },
       scales: {
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: 'Precio €/kWh',
-          },
-        },
         x: {
-         
-          title: {
-            display: true,
-            text: 'Hora del día' 
+          grid: {
+            color: 'rgba(255, 255, 255, 0.1)'
           },
           ticks: {
-            autoSkip: true,
-            maxRotation: 45, 
-            minRotation: 45
-          },
+            color: '#FFFFFF'
+          }
         },
-      },
-    },
+        y: {
+          grid: {
+            color: 'rgba(255, 255, 255, 0.1)'
+          },
+          ticks: {
+            color: '#FFFFFF'
+          }
+        }
+      }
+    }
   });
-  
 
-  return canvas;
+  const container = document.createElement('div');
+  container.className = 'chart-container';
+  container.appendChild(canvas);
+  return container;
 }

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { cardPrices } from "./components/cardPrices/cardPrices.js";
 import { createFooter } from "./components/footer/footer.js";
 import { createdGraph } from "./components/grafico/chart.js";
@@ -42,32 +41,11 @@ function loadComponent(component) {
     loadComponent(renderRegister());
   }
 
-<<<<<<< HEAD
-// REGISTER Y LOGIN:
-function renderLogin(){
-    const app = document.getElementById("app");
-    app.innerHTML = "";
-    const login = createLogin();
-    app.appendChild(login);
-
-    document.getElementById("register-link").addEventListener("click",renderRegister);
-};
-
-function renderRegister(){
-    app.innerHTML = "";
-    const register = createRegister();
-    app.appendChild(register);
-
-    document.getElementById("login-link").addEventListener("click",renderLogin);
-    document.getElementById("register").ATTRIBUTE_NODE.addEventListener("click",renderPaginaLuzYTiempo);
-};
-=======
 async function renderTemp(){
     event.preventDefault()
     const city = document.getElementById("city");
     const data = await getDataWheater(city.value.trim());
     const wheatersObject = data.get('Wheaters');
->>>>>>> cef8feae1ed043a03d5a6321b7d7a1b1036b6ab2
 
     const list = wheatersObject.list;
     renderPaginaWhitTime(list);
@@ -192,39 +170,5 @@ function renderPaginaTime() {
     document.getElementById("time-btn").addEventListener('click',renderPaginaTime);
  }
 // Ejecucion de codigo:
-<<<<<<< HEAD
-renderLogin();
-
-// SE GUARDA EN EL LOCAL STORAGE UNA VARIABLE BOOLEANA PARA SABER SI ESTA LOGEADO
-let logeado = true;
-if(logeado){
-    app.innerHTML = "";
-    renderPaginaLuzYTiempo();
-    logeado = false;
-};
-=======
-import { renderLogin } from './components/login.js';
-import { renderRegister } from './components/register.js';
-
-function loadComponent(component) {
-  const app = document.getElementById('app');
-  app.innerHTML = ''; // Limpia el contenido previo
-  app.appendChild(component);
-}
-
-// Carga inicial
-loadComponent(renderLogin());
-
-// Exportamos funciones para cambiar entre componentes
-export function switchToLogin() {
-  loadComponent(renderLogin());
-}
-
-export function switchToRegister() {
-  loadComponent(renderRegister());
-}
->>>>>>> 535e167bb86673c4e52ae96b26f25e650d140ddb
-=======
  // Carga inicial
 loadComponent(renderLogin());
->>>>>>> cef8feae1ed043a03d5a6321b7d7a1b1036b6ab2

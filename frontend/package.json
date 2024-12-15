@@ -4,18 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-<<<<<<< HEAD
     "vite": "^5.4.10"
   },
   "dependencies": {
     "chart.js": "^4.4.7"
-=======
-    "vite": "^6.0.1"
->>>>>>> 535e167bb86673c4e52ae96b26f25e650d140ddb
   }
 }

@@ -1,15 +1,14 @@
 .load-button {
-    background-color: #3b82f6; /* Azul claro */
-    color: #f8fafc; /* Blanco */
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .load-button:hover {
-    background-color: #2563eb; /* Azul más oscuro */
-  }
-  
+  background-color: #3b82f6; /* Azul claro */
+  color: #f8fafc; /* Blanco */
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-button:hover {
+  background-color: #2563eb; /* Azul más oscuro */
+}

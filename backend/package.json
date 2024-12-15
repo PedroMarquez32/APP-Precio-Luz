@@ -1,47 +1,17 @@
 {
   "name": "backend",
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "start":"node src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-=======
   "private": true,
   "version": "0.0.0",
   "main": "src/server.js",
   "type": "module",
   "scripts": {
     "start": "node src/server.js"
->>>>>>> 535e167bb86673c4e52ae96b26f25e650d140ddb
-=======
-  "private": true,
-  "version": "0.0.0",
-  "main": "src/server.js",
-  "type": "module",
-  "scripts": {
-    "start": "node src/server.js"
->>>>>>> cef8feae1ed043a03d5a6321b7d7a1b1036b6ab2
   },
   "dependencies": {
     "bcrypt": "5.1.1",
     "cors": "^2.8.5",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "dotenv": "^16.4.7",
-    "express": "^4.21.1",
-    "sqlite3": "^5.1.7"
-=======
     "dotenv": "16.4.7",
     "express": "4.21.2",
     "sqlite3": "5.1.7"
->>>>>>> 535e167bb86673c4e52ae96b26f25e650d140ddb
-=======
-    "dotenv": "16.4.7",
-    "express": "4.21.2",
-    "sqlite3": "5.1.7"
->>>>>>> cef8feae1ed043a03d5a6321b7d7a1b1036b6ab2
   }
 }

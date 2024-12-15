@@ -1,9 +1,115 @@
 .chart-container {
-    width: 100%;
-    max-width: 800px;
-    background-color: #1e293b; /* Azul oscuro */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  background: linear-gradient(135deg, #1a237e, #0d47a1);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin: 30px auto;
+  border: 2px solid #00BFFF;
+  position: relative;
+}
+
+.chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #FFC107, #FF5722);
+}
+
+canvas {
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* Estilos para personalizar Chart.js */
+:root {
+  --chart-text-color: #FFFFFF;
+  --chart-grid-color: rgba(255, 255, 255, 0.1);
+  --chart-line-color: #FFC107;
+  --chart-point-color: #FF5722;
+  --chart-price-color: #FF4444;
+}
+
+/* Aplicar estos colores requiere configuración en el JavaScript de la gráfica:
+
+chartConfig = {
+  options: {
+    plugins: {
+      legend: {
+        labels: {
+          color: '#FFFFFF'
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: {
+          color: 'rgba(255, 255, 255, 0.1)'
+        },
+        ticks: {
+          color: '#FFFFFF'
+        }
+      },
+      y: {
+        grid: {
+          color: 'rgba(255, 255, 255, 0.1)'
+        },
+        ticks: {
+          color: '#FFFFFF'
+        }
+      }
+    }
+  },
+  data: {
+    datasets: [{
+      borderColor: '#FFC107',
+      backgroundColor: 'rgba(255, 193, 7, 0.2)',
+      pointBackgroundColor: '#FF5722',
+      pointBorderColor: '#FF5722'
+    }]
   }
-  
+}
+*/
+
+/* Estilos para los textos de precios */
+.price-text {
+  color: #FF4444;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para las etiquetas */
+.chart-label {
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para la leyenda */
+.chart-legend {
+  color: #FFFFFF;
+  padding: 15px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+  backdrop-filter: blur(5px);
+}
+
+/* Estilos específicos para los valores de precio */
+.price-value {
+  color: #FF4444 !important;
+  font-weight: bold !important;
+  font-size: 1.2rem !important;
+}
+
+/* Asegurarse de que los textos de precio sean rojos */
+.chart-js-price {
+  color: #FF4444 !important;
+}
