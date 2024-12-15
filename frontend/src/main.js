@@ -41,6 +41,7 @@ function renderRegister(){
     app.appendChild(register);
 
     document.getElementById("login-link").addEventListener("click",renderLogin);
+    document.getElementById("register").ATTRIBUTE_NODE.addEventListener("click",renderPaginaLuzYTiempo);
 };
 
 

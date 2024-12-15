@@ -16,8 +16,9 @@ app.use(express.static(path.join(ROOTDIR,"public")));
 
 app.use("/", rootRoutes);
 app.use("/users", userRoutes);
+app.use("/prices",priceRoutes);
 
 app.listen(PORT , ()=>{
     console.log(`Servidor ejecutandose en url: http://localhost:${PORT}`);
-})
+});
 
