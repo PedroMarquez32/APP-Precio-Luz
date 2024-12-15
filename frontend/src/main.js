@@ -7,8 +7,11 @@ import { createLoadButton } from "./components/loadButton/loadButton.js";
 import { createDiv } from "./components/navIndex/divIndex.js";
 import { createSpinner, hideSpinner, showSpinner } from "./components/spinner/spinner.js";
 import { getDataPrice } from "./helpers/getDataPrices.js";
-import { createLogin} from './components/login.js';
-import { createRegister } from './components/register.js';
+import { renderLogin} from './components/login.js';
+import { renderRegister } from './components/register.js';
+import { getDataWheater } from "./helpers/getDataWheater.js";
+import { createdformCity } from "./components/formCity/formCity.js";
+import { createdCardTemp } from "./components/renderTemps/renderTemps.js";
 
 // -------- Delcaracion de variables ------
 const urlData = import.meta.env.VITE_HOUR_PRICES;
@@ -25,7 +28,21 @@ const githubs =
 };
 
 // --------- Declaracion de funciones -----
+function loadComponent(component) {
+    const app = document.getElementById('app');
+    app.innerHTML = ''; // Limpia el contenido previo
+    app.appendChild(component);
+  } 
+  // Exportamos funciones para cambiar entre componentes
+  export function switchToLogin() {
+    loadComponent(renderLogin());
+  }
+  
+  export function switchToRegister() {
+    loadComponent(renderRegister());
+  }
 
+<<<<<<< HEAD
 // REGISTER Y LOGIN:
 function renderLogin(){
     const app = document.getElementById("app");
@@ -44,11 +61,21 @@ function renderRegister(){
     document.getElementById("login-link").addEventListener("click",renderLogin);
     document.getElementById("register").ATTRIBUTE_NODE.addEventListener("click",renderPaginaLuzYTiempo);
 };
+=======
+async function renderTemp(){
+    event.preventDefault()
+    const city = document.getElementById("city");
+    const data = await getDataWheater(city.value.trim());
+    const wheatersObject = data.get('Wheaters');
+>>>>>>> cef8feae1ed043a03d5a6321b7d7a1b1036b6ab2
 
+    const list = wheatersObject.list;
+    renderPaginaWhitTime(list);
+}
 
 // Pagina luz y tiempo por defecto:
-function renderPaginaLuzYTiempo() {
-    
+export function renderPaginaLuzYTiempo() {
+    app.textContent = "";
     // LOGO QUE HAY QUE PONER
     const divIndex = createDiv();
     app.appendChild(divIndex);
@@ -118,7 +145,6 @@ function renderPaginaLuz() {
 // PARTE TIEMPO:
 function renderPaginaTime() {
     
- 
     app.textContent = "";
     const divIndex = createDiv();
     app.appendChild(divIndex);
@@ -127,16 +153,46 @@ function renderPaginaTime() {
     
     app.appendChild(spinner);
  
+    const formCity = createdformCity();
+    app.appendChild(formCity);
+
     if(showFooter){
         renderFooter();
     }
+
+    document.getElementById("temp-btn").addEventListener("click", renderTemp);
     
     document.getElementById("luz-btn").addEventListener('click',renderPaginaLuz);
     document.getElementById("time-btn").addEventListener('click',renderPaginaTime);
  };
 
+ function renderPaginaWhitTime(temperaturas){
+    app.textContent = "";
 
+    const divIndex = createDiv();
+    app.appendChild(divIndex);
+ 
+    const spinner = createSpinner(); 
+    
+    app.appendChild(spinner);
+ 
+    const formCity = createdformCity();
+    app.appendChild(formCity);
+
+    const renderTemps = createdCardTemp(temperaturas);
+    app.appendChild(renderTemps);
+
+    if(showFooter){
+        renderFooter();
+    }
+
+    document.getElementById("temp-btn").addEventListener("click", renderTemp);
+    
+    document.getElementById("luz-btn").addEventListener('click',renderPaginaLuz);
+    document.getElementById("time-btn").addEventListener('click',renderPaginaTime);
+ }
 // Ejecucion de codigo:
+<<<<<<< HEAD
 renderLogin();
 
 // SE GUARDA EN EL LOCAL STORAGE UNA VARIABLE BOOLEANA PARA SABER SI ESTA LOGEADO
@@ -168,3 +224,7 @@ export function switchToRegister() {
   loadComponent(renderRegister());
 }
 >>>>>>> 535e167bb86673c4e52ae96b26f25e650d140ddb
+=======
+ // Carga inicial
+loadComponent(renderLogin());
+>>>>>>> cef8feae1ed043a03d5a6321b7d7a1b1036b6ab2

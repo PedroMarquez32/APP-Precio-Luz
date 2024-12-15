@@ -1,3 +1,5 @@
+import { renderPaginaLuzYTiempo } from "../main";
+
 export const createUserRequest = async (dataUrlUser, email, password) =>{
     try {
         const response = await fetch(dataUrlUser, {
@@ -35,7 +37,7 @@ export const loginUserRequest = async (dataUrlUser, email, password)=>{
         }
         const data = await response.json();
         alert("Autentificación exitosa");
-        window.location.href = data.redirectUrl;
+        renderPaginaLuzYTiempo();
     } catch (error) {
         alert("Usuario/contraseña inválido");
         console.log("Usuario/contraseña inválido", error)
