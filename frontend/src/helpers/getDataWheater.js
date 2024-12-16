@@ -1,4 +1,3 @@
-
 const dataWeather = import.meta.env.VITE_GET_WEATHER;
 
 export async function getDataWheater(city) {
@@ -9,7 +8,7 @@ export async function getDataWheater(city) {
         }
 
         // Hacer la solicitud al backend
-        const response = await fetch(dataWeather, {
+        const weather = await fetch(`${dataWeather}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -17,16 +16,19 @@ export async function getDataWheater(city) {
             body: JSON.stringify({ city }),
         });
 
+        const mapData = new Map();
+
         // Verificar si la respuesta es válida
-        if (!response.ok) {
+        if (!weather.ok) {
             throw new Error('Error en la solicitud al backend.');
         }
 
         // Parsear los datos obtenidos
-        const data = await response.json();
+        const data = await weather.json();
+        mapData.set('Wheaters', data);
 
-        return data;
+        return mapData;
     } catch (error) {
-        console.error('Error al obtener los datos del clima:', error.message);
+        console.error('Error: ', error);
     }
 }
