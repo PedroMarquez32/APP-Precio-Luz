@@ -3,7 +3,7 @@ const dataWeather = import.meta.env.VITE_GET_WEATHER;
 
 export async function getDataWheater(city) {
     try {
-        const weather = await fetch(`${dataWeather}?&city=${city}`);
+        const weather = await fetch(`${dataWeather}`);
         const mapData = new Map();
         if(!weather.ok){
             throw new Error("Error: error en la API")

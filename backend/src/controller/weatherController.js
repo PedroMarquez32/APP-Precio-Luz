@@ -1,38 +1,33 @@
-import { API_KEY_WEATHER } from '../config/config.js';  
-
+import { API_KEY_WEATHER } from '../config/config.js';
 
 export const fetchWeatherData = async (req, res) => {
     try {
-        const city  = req.body;
-        const urlCity = `http://api.openweathermap.org/geo/1.0/direct?q=${city}}&limit=1&appid=${API_KEY_WEATHER}`;
-        
-        const responseCity = await fetch(urlCity);
+        // Extraer "city" del cuerpo de la solicitud
+        const { city } = req.body;
 
-        if(!responseCity.ok){
-            throw new Error("Error en el fetch API Geocode");
-        }
-       const dataCity = await responseCity.json(); 
-        const lat = dataCity[0].lat;
-        const lon = dataCity[0].lon;
-
-        // Verificar si la latitud y longitud están presentes
-        if (!lat || !lon) {
-            return res.status(400).json({ error: 'Se requieren latitud (lat) y longitud (lon)' });
+        // Validar que se proporcionó el parámetro "city"
+        if (!city) {
+            return res.status(400).json({ error: 'El parámetro "city" es obligatorio.' });
         }
 
         // Construir la URL con los parámetros
-        const urlData = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY_WEATHER}`;
+        const urlData = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY_WEATHER}&units=metric`;
 
+        // Realizar la solicitud a la API de OpenWeather
         const responseData = await fetch(urlData);
 
+        // Verificar si la respuesta es válida
         if (!responseData.ok) {
             throw new Error('Error en la API de OpenWeather');
         }
 
+        // Parsear los datos obtenidos
         const data = await responseData.json();
 
+        // Devolver la respuesta al cliente
         return res.status(200).json(data);
     } catch (error) {
+        // Manejar errores
         console.error('Error al obtener los datos de la API de OpenWeather:', error.message);
         res.status(500).json({ error: 'Error al obtener los datos de la API de OpenWeather.' });
     }
