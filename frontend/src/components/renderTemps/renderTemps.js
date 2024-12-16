@@ -6,7 +6,7 @@ export function createdCardTemp(temperaturas){
 
     const infoContainer = document.createElement("div");
     infoContainer.className = "info-container"; 
-
+    console.log(temperaturas);
     temperaturas.forEach(element => {
         const { dt_txt } = element;
         const { temp, temp_max, temp_min } = element.main;

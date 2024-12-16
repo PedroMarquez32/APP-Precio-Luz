@@ -3,8 +3,8 @@ import { API_KEY_WEATHER } from '../config/config.js';
 
 export const fetchWeatherData = async (req, res) => {
     try {
-        const city  = req.body;
-        const urlCity = `http://api.openweathermap.org/geo/1.0/direct?q=${city}}&limit=1&appid=${API_KEY_WEATHER}`;
+        const city  = req.body || "granada";
+        const urlCity = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY_WEATHER}`;
         
         const responseCity = await fetch(urlCity);
 
@@ -21,7 +21,7 @@ export const fetchWeatherData = async (req, res) => {
         }
 
         // Construir la URL con los parámetros
-        const urlData = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY_WEATHER}`;
+        const urlData = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY_WEATHER}&units=metric`;
 
         const responseData = await fetch(urlData);
 
