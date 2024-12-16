@@ -172,6 +172,37 @@ a:hover {
   justify-content: center;
 }
 
+.info-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 20px; 
+  width: 100%; 
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+.card {
+  width: 30%;
+  height: auto;
+  border: 2px solid orange;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.price-info {
+  font-size: 1rem;
+}
+
+.time, .price {
+  font-weight: bold;
+  display: block;
+}
+
 @media (max-width: 768px) {
   body {
     padding: 20px 10px;

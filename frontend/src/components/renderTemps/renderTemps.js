@@ -3,10 +3,18 @@
 export function createdCardTemp(temperaturas){
     const divTemps = document.createElement("div");
     divTemps.id = "temps";
+
+    const infoContainer = document.createElement("div");
+    infoContainer.className = "info-container"; 
+
     temperaturas.forEach(element => {
         const { dt_txt } = element;
         const { temp, temp_max, temp_min } = element.main;
-        // Compraramos las horas para filtras las que hemos puesto.
+
+        const today = new Date();
+        const dayOfMonth = today.getDate();
+        
+        if(dt_txt.split(" ")[0].split("-")[2] == dayOfMonth){
 
             const card = document.createElement("div");
             card.classList.add("card");
@@ -18,7 +26,9 @@ export function createdCardTemp(temperaturas){
                 <h5>Temperatura Minima: ${temp_min}°C</h5>
             `;
 
-            divTemps.appendChild(card);
-        });
+            infoContainer.appendChild(card);
+        }
+    });
+    divTemps.appendChild(infoContainer);
     return divTemps;
 }
