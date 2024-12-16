@@ -1,4 +1,4 @@
-import { createUser, getAllUser, loginUser } from "../models/user.js";
+import { createUser, loginUser } from "../models/user.js";
 
 
 export const createUserHandler = async (req,res)=>{
@@ -29,27 +29,3 @@ export const loginUserHandler = (req, res)=>{
         }
     })
 }
-
-export const getAllUserHandler = (req,res) =>{
-    getAllUser((err,rows)=>{
-        if(err){
-            res.status(500).json({error: err.message});
-        }else{
-            res.status(200).json(rows);
-        }
-    })
-}
-
-// export const getUserByIdHandler = (req,res) =>{
-//     const { id } = req.params;
-
-//     getClientById(id,(err,row)=>{
-//         if(err){
-//             res.status(500).json({error: err.message});
-//         }else if(!row){
-//             res.status(404).json({error: "Usuario no encontrado"});
-//         }else{
-//             res.status(200).json(row);
-//         }
-//     })
-// }
