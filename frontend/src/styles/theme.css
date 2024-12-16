@@ -1,0 +1,23 @@
+:root {
+    --bg-primary: linear-gradient(135deg, #1a237e, #0d47a1);
+    --bg-secondary: linear-gradient(135deg, #283593, #1e88e5);
+    --text-primary: #FFFFFF;
+    --accent-primary: #FFC107;
+    --accent-secondary: #FF5722;
+    --border-color: #00BFFF;
+    --card-bg: linear-gradient(135deg, #283593, #1e88e5);
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --button-gradient: linear-gradient(45deg, #FF5722, #FFC107);
+  }
+  
+  [data-theme="dark"] {
+    --bg-primary: linear-gradient(135deg, #0a0f2d, #061834);
+    --bg-secondary: linear-gradient(135deg, #111841, #0c4a99);
+    --text-primary: #e0e0e0;
+    --accent-primary: #ffd700;
+    --accent-secondary: #ff4500;
+    --border-color: #1e88e5;
+    --card-bg: linear-gradient(135deg, #111841, #0c4a99);
+    --input-bg: rgba(0, 0, 0, 0.2);
+    --button-gradient: linear-gradient(45deg, #ff4500, #ffd700);
+  }

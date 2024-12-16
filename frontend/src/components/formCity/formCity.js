@@ -4,9 +4,8 @@ export function createdformCity(){
     const formCity = document.createElement("form");
     formCity.id = "formCity";
 
-    formCity.innerHTML += `
-    <label>Introduce el nombre de la ciudad</label>
-    <input type="text" id="city"><br>
+    formCity.innerHTML = `
+    <input type="text" id="city" placeholder="Introduce el nombre de la ciudad"><br>
     <button id="temp-btn">Ver temperatura de la ciudad</button>
     `
     return formCity;

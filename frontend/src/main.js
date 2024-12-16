@@ -11,6 +11,7 @@ import { renderRegister } from './components/register.js';
 import { getDataWheater } from "./helpers/getDataWheater.js";
 import { createdformCity } from "./components/formCity/formCity.js";
 import { createdCardTemp } from "./components/renderTemps/renderTemps.js";
+import { createThemeToggle } from './components/themeToggle/themeToggle.js';
 
 // -------- Delcaracion de variables ------
 const urlData = import.meta.env.VITE_HOUR_PRICES;
@@ -20,7 +21,7 @@ let endHour = "";
 let dataPrices = [];
 const githubs = 
 { 
-    Francisco_Jose_Salmeron_Puig: "_Salm3ron_",  
+    Francisco_Jose_Salmeron_Puig: "FranSalmeron",  
     Luis_Maldonado_Hernandez: "Kuisyy", 
     Damaso: "DamasoGE",
     Pedro_Javier_Marquez_Lizana: "PedroMarquez32"
@@ -94,7 +95,7 @@ const handleClick = async() => {
 
 // Renderizar la luz si se pulsa el boton de la luz:
 function renderPaginaLuz() {
-   starHour = "00:00";
+    starHour = "00:00";
     endHour = "06:00";
 
     app.textContent = "";
@@ -122,7 +123,6 @@ function renderPaginaLuz() {
 
 // PARTE TIEMPO:
 function renderPaginaTime() {
-    
     app.textContent = "";
     const divIndex = createDiv();
     app.appendChild(divIndex);
@@ -169,6 +169,9 @@ function renderPaginaTime() {
     document.getElementById("luz-btn").addEventListener('click',renderPaginaLuz);
     document.getElementById("time-btn").addEventListener('click',renderPaginaTime);
  }
+
 // Ejecucion de codigo:
- // Carga inicial
-loadComponent(renderLogin());
+document.addEventListener('DOMContentLoaded', () => {
+    // Solo cargar el login inicial
+    loadComponent(renderLogin());
+});

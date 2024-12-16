@@ -19,7 +19,7 @@
     overflow: hidden;
   }
   
-  /* Separador entre tarjetas */
+
   .card:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -54,7 +54,7 @@
     font-weight: 600;
   }
   
-  /* Temperatura actual */
+
   .card h5:first-child {
     font-size: 1.4rem;
     color: #FFC107;
@@ -62,17 +62,17 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   }
   
-  /* Temperatura máxima */
+
   .card h5:nth-child(2) {
     color: #FF5722;
   }
   
-  /* Temperatura mínima */
+
   .card h5:nth-child(3) {
     color: #00BFFF;
   }
   
-  /* Humedad */
+
   .card h5:nth-child(4) {
     color: #8BC34A;
   }

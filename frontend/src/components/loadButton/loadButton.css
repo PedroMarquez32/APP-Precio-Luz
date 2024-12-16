@@ -1,6 +1,6 @@
 .load-button {
-  background-color: #3b82f6; /* Azul claro */
-  color: #f8fafc; /* Blanco */
+  background-color: #3b82f6; 
+  color: #f8fafc; 
   font-size: 1rem;
   border: none;
   border-radius: 5px;
@@ -10,5 +10,5 @@
 }
 
 .load-button:hover {
-  background-color: #2563eb; /* Azul más oscuro */
+  background-color: #2563eb;
 }

@@ -1,8 +1,8 @@
 .register-container {
   width: 100%;
   max-width: 400px;
-  background-color: #1e293b; /* Azul oscuro */
-  color: #f8fafc; /* Blanco */
+  background-color: #1e293b; 
+  color: #f8fafc; 
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -12,24 +12,24 @@
 .register-container h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: #facc15; /* Amarillo brillante */
+  color: #facc15; 
 }
 
 .register-container input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #2563eb; /* Azul */
+  border: 1px solid #2563eb; 
   border-radius: 5px;
-  background-color: #f8fafc; /* Blanco */
-  color: #1e293b; /* Azul oscuro */
+  background-color: #f8fafc; 
+  color: #1e293b; 
   font-size: 1rem;
 }
 
 .register-container button {
   width: 100%;
-  background-color: #3b82f6; /* Azul claro */
-  color: #f8fafc; /* Blanco */
+  background-color: #3b82f6; 
+  color: #f8fafc; 
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -39,5 +39,5 @@
 }
 
 .register-container button:hover {
-  background-color: #2563eb; /* Azul más oscuro */
+  background-color: #2563eb; 
 }

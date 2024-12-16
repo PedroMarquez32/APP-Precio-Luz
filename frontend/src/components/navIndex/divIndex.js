@@ -1,7 +1,11 @@
+import { createThemeToggle } from '../themeToggle/themeToggle.js';
 
 export function createDiv() {
     const div = document.createElement("div");
     div.id = "divIndex";
+
+    const themeToggle = createThemeToggle();
+    div.appendChild(themeToggle);
 
     const luzButton = document.createElement("button");
     luzButton.id = "luz-btn";

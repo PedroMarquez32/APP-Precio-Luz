@@ -1,27 +1,22 @@
-/**
- * Spinner con tres estados:
- * - Crear el spinner
- * - Mostrar el Spinner 
- * - Ocultar el Spinner
- */
-
-export const createSpinner = () =>  {
-    // voy a crear el spinner en el DOM
-    const spinner = document.createElement("div");
+import './spinner.css'
+export const createSpinner = () => { 
+    const spinner= document.createElement("div");
     spinner.id="spinner";
     spinner.classList.add("hidden", "spinner");
-    spinner.textContent = "Cargando...";
-    return spinner;
-};
+    
+    const elementoSpinner = document.createElement("div");
+    elementoSpinner.classList.add("spinner-element");
 
-export function showSpinner() {
-    //mostrar el spinner
+    spinner.appendChild(elementoSpinner);
+    return spinner;
+}
+
+export const showSpinner = () => {
     const spinner = document.getElementById("spinner");
     spinner.classList.remove("hidden");
 }
 
-export function hideSpinner() {
-    // ocultar el spinner
+export const hideSpinner = () => {
     const spinner = document.getElementById("spinner");
     spinner.classList.add("hidden");
-}
+}     
