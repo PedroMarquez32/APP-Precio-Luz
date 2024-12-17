@@ -1,3 +1,4 @@
+//author: Dámaso Giménez Escudero
 import express from 'express';
 import { createUserHandler, loginUserHandler} from "../controller/userController.js";
 

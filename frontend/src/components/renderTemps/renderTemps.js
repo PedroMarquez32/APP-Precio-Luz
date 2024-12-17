@@ -1,4 +1,4 @@
-
+//author: Francisco Jose Salmeron Puig
 
 export function createdCardTemp(temperaturas){
     const divTemps = document.createElement("div");

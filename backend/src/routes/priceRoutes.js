@@ -1,3 +1,4 @@
+//author: Luis Maldonado Hernández
 import express from 'express';
 import { fetchPrices, getPrices } from '../controller/priceController.js';
 

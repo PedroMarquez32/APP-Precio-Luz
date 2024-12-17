@@ -1,5 +1,5 @@
 // tarjeta con los precios de la luz
-
+//author: Francisco Jose Salmeron Puig
 export const cardPrices = async (data, starHour, endHour) => {
     const divPrice = document.createElement("div");
     divPrice.id = "cardPrice"; 

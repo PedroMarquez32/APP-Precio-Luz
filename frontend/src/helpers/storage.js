@@ -1,3 +1,4 @@
+//author: Pedro Javier Marquez Lizana
 export function getUsersFromStorage() {
     return JSON.parse(localStorage.getItem('users')) || [];
   }

@@ -1,3 +1,4 @@
+//author: Pedro Javier Marquez Lizana
 import { validateLogin } from '../helpers/validation.js';
 import { getUsersFromStorage } from '../helpers/storage.js';
 import { switchToRegister } from '../main.js';

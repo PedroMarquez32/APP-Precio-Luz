@@ -1,3 +1,5 @@
+//author: Luis Maldonado Hernandez
+//author: Dámaso Giménez Escudero
 /**
  * Config de los dotenv 
  */

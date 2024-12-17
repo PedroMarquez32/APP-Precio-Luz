@@ -1,3 +1,4 @@
+//author: Francisco Jose Salmeron Puig
 const dataWeather = import.meta.env.VITE_GET_WEATHER;
 
 export async function getDataWheater(city) {

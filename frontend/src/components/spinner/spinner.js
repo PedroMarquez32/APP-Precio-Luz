@@ -1,3 +1,4 @@
+//author: Francisco Jose Salmeron Puig
 import './spinner.css'
 export const createSpinner = () => { 
     const spinner= document.createElement("div");

@@ -1,3 +1,5 @@
+//author: Luis Maldonado Hernández
+//author: Dámaso Giménez Escudero
 /**
  * Crear la dadtabase por si acaso no existe.
  */

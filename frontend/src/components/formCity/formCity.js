@@ -1,3 +1,4 @@
+//author: Francisco Jose Salmeron Puig
 const ranges = import.meta.env.VITE_HOUR_RANGES;
 
 export function createdformCity(){

@@ -1,3 +1,5 @@
+//author: Francisco Jose Salmeron Puig
+//author: Pedro Javier Marquez Lizana
 import { cardPrices } from "./components/cardPrices/cardPrices.js";
 import { createFooter } from "./components/footer/footer.js";
 import { createdGraph } from "./components/grafico/chart.js";

@@ -1,3 +1,4 @@
+//author: Francisco Jose Salmeron Puig
 import { createThemeToggle } from '../themeToggle/themeToggle.js';
 
 export function createDiv() {

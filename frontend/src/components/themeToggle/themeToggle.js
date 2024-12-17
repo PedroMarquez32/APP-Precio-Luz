@@ -1,3 +1,4 @@
+//author: Pedro Javier Marquez Lizana
 export const createThemeToggle = () => {
     const toggleButton = document.createElement('button');
     toggleButton.className = 'theme-toggle';

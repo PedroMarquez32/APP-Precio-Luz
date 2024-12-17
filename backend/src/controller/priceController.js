@@ -1,3 +1,4 @@
+//author: Luis Maldonado Hernández
 import { insertPrice, getAllPrices, deletePrices } from '../models/priceModel.js';
 import { API_LUZ_URL } from '../config/config.js';
 

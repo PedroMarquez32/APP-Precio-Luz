@@ -1,3 +1,5 @@
+//author: Francisco Jose Salmeron Puig
+//author: Pedro Javier Marquez Lizana
 export const createFooter = (data) => {
     const footer = document.createElement("footer");
     footer.className = "footer";

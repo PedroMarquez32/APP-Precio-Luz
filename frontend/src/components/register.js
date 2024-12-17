@@ -1,3 +1,4 @@
+//author: Pedro Javier Marquez Lizana
 import { createUserRequest } from '../helpers/services.js';
 import { saveUserToStorage, getUsersFromStorage } from '../helpers/storage.js';
 import { switchToLogin } from '../main.js';

@@ -1,3 +1,4 @@
+//author: Luis Maldonado Hernández
 // traer la data de los precios de la luz y retornarla
 import db from "./database.js";
 

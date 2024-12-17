@@ -1,3 +1,4 @@
+//author: Francisco Jose Salmeron Puig
 // traer la data de los precios de la luz y retornarla
 const fetchPrices = import.meta.env.VITE_FETCH_PRICES;
 const dataPrice = import.meta.env.VITE_GET_PRICES;

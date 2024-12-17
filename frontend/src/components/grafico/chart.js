@@ -1,3 +1,5 @@
+//author: Francisco Jose Salmeron Puig
+//author: Pedro Javier Marquez Lizana
 import Chart from 'chart.js/auto';
 
 export function createdGraph(starHour, endHour, data) {

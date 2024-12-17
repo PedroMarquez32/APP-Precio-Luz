@@ -1,3 +1,5 @@
+//author: Pedro Javier Marquez Lizana
+//author: Francisco Jose Salmeron Puig
 import { renderPaginaLuzYTiempo } from "../main";
 
 export const createUserRequest = async (dataUrlUser, email, password) =>{

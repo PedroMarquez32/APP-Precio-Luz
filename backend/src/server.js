@@ -1,3 +1,5 @@
+//author: Luis Maldonado Hernández
+//author: Dámaso Giménez Escudero
 /**
  * Config inicial del server
  */

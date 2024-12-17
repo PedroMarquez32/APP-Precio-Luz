@@ -1,3 +1,4 @@
+//author: Dámaso Giménez Escudero
 import bcrypt from 'bcrypt';
 import db from "./database.js";
 

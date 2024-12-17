@@ -1,3 +1,4 @@
+//author: Luis Maldonado Hernández
 import express from 'express';
 import { fetchWeatherData } from '../controller/weatherController.js';
 

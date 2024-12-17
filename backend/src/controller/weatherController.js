@@ -1,3 +1,4 @@
+//author: Luis Maldonado Hernández
 import { API_KEY_WEATHER } from '../config/config.js';
 
 export const fetchWeatherData = async (req, res) => {

@@ -1,3 +1,4 @@
+//author: Francisco Jose Salmeron Puig
 // selector de horas que esta en .env
 const ranges = import.meta.env.VITE_HOUR_RANGES;
 
